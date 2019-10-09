@@ -39,16 +39,26 @@ function runProgram() {
         inquirer
             .prompt([
                 {
-                   type: 'number',
-                   message: 'Please enter the product ID of the item that you would like to buy.'.yellow,
-                   name: 'id'
+                    type: 'number',
+                    message: 'Please enter the product ID of the item that you would like to buy.'.yellow,
+                    name: 'id'
                 },
                 {
                     type: 'number',
                     message: 'How many would you like to buy?'.yellow,
                     name: 'quantity'
                 }
-            ]).then(function)
+            ]).then(function (cart) {
+                var quantity = cart.quantity;
+                var itemID = cart.id;
+
+                connection.query('SELECT * FROM products WHERE id=' + itemID, function (err, selectedItem) {
+                    if (err) throw err;
+
+
+                })
+            })
 
     }
-    )};
+    )
+};
