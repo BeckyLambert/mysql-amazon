@@ -1,7 +1,7 @@
 var mysql = require("mysql");
 var inquirer = require("inquirer");
 var colors = require('colors');
-// var Table = require('cli-table');
+var Table = require('cli-table');
 
 
 // Connection script
@@ -54,10 +54,17 @@ function runProgram() {
 
                 connection.query('SELECT * FROM products WHERE id=' + itemID, function (err, selectedItem) {
                     if (err) throw err;
+                        // Varify item quantity desired is in inventory
+                    if(selectedItem[0].stock_quantity - quantity >= 0) {
+                        console.log('INVENTORY AUDIT: Quantity in Stock: '.green + selectedItem[0].stock_quantity + ' Order Quantity: '.green + quantity.yellow);
 
+                        console.log('Congratulations! Bamazon has suffiecient inventory of '.green + selectedItem[0].product_name.yellow + ' to fill your order!'.green);
 
-                })
-            })
+                         // Calculate total sale, and fix 2 decimal places
+                         console.log("Thank You for your purchase. Your order total will be ".green + (cart.quantity * selectedItem[0].price).toFixed(2).yellow + " dollars.".green, "\nThank you for shopping at Bamazon!".magenta);
+                    }
+                });
+            });
 
     }
     )
