@@ -15,10 +15,19 @@ The second message should ask how many units of the product they would like to b
 Initial table with full inventory:
 
 
+![Initial Table](Images/firstTable.png)
+
 First purchase:
 
+
+![Purchase](Images/purchase.png)
 
 Updated inventory in table:
 
 
+![Updated Table](Images/updatedInventory.png)
+
 Showing insufficient inventory when you order more than is in stock:
+
+
+![Insufficient](Images/noInventory.png)
