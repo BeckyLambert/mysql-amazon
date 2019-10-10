@@ -33,11 +33,11 @@ function runProgram() {
         // Set/Style table headings and Loop through entire inventory
         for (var i = 0; i < res.length; i++) {
             table.push(
-                [res[i].id, res[i].product, res[i].department, parseFloat(res[i].price).toFixed(2), res[i].quantity]
+                [res[i].id, res[i].product, res[i].department, parseFloat(res[i].price).toFixed(2), res[i].stock_quantity]
             );
 
         }
-        console.log(table);
+        console.log(table.toString);
         inquirer
             .prompt([
                 {
@@ -58,7 +58,7 @@ function runProgram() {
                     if (err) throw err;
                     // Varify item quantity desired is in inventory
                     if (selectedItem[0].stock_quantity - quantity >= 0) {
-                        console.log('INVENTORY AUDIT: Quantity in Stock: '.green + selectedItem[0].stock_quantity + ' Order Quantity: '.green + quantity.yellow);
+                        console.log('INVENTORY AUDIT: Quantity in Stock: '.green + selectedItem[0].stock_quantity);
 
                         console.log('Congratulations! Bamazon has sufficient inventory of '.green + selectedItem[0].product.yellow + ' to fill your order!'.green);
 
