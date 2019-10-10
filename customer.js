@@ -27,9 +27,9 @@ function runProgram() {
         var table = new Table(
             {
                 head: ['Product ID'.cyan.bold, 'Product Name'.cyan.bold, 'Department Name'.cyan.bold, 'Price'.cyan.bold, 'Quantity'.cyan.bold],
-                colWidths: [12, 75, 20, 12, 12],
+                colWidths: [10,25,25,10,10],
             });
-
+              
         // Set/Style table headings and Loop through entire inventory
         for (var i = 0; i < res.length; i++) {
             table.push(
@@ -37,7 +37,7 @@ function runProgram() {
             );
 
         }
-        console.log(table.toString);
+        console.log(table.toString());
         inquirer
             .prompt([
                 {
